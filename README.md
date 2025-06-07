@@ -1,87 +1,42 @@
-# Welcome to React Router!
+# Skip Selector App
 
-A modern, production-ready template for building full-stack React applications using React Router.
+## 📦 Component Architecture
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+Instead of building large monolithic components, this project emphasizes **breaking down UI into smaller, reusable parts**.
 
-## Features
+### ✅ Example: SkipCard Component
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+The `SkipCard` UI (used to display a skip bin) is **decomposed into 4 small focused components**:
 
-## Getting Started
+#### 1. `CardContainer`
+Handles layout, background, border, and selection styling.
+
+#### 2. `CardImageHeader`
+Displays the image of the skip and overlays the yard size label.
+
+#### 3. `CardContent`
+Shows the skip size, hire period, and total price.
+
+#### 4. `CardAction`
+Renders the selection button — shows a selected state or prompts the user to select.
+
+**Why this matters:**
+- 🧼 Clean separation of concerns
+- 🔁 Reusable for other card types 
+- 🧪 Easier to test each piece
+- 🧩 Easy to override, extend, or replace just one section without touching others
+
+---
+
+## 🛠 Getting Started
 
 ### Installation
-
-Install the dependencies:
 
 ```bash
 npm install
 ```
 
-### Development
-
-Start the development server with HMR:
+### Execution Command
 
 ```bash
 npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
