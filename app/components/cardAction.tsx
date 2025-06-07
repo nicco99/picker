@@ -4,10 +4,15 @@ interface CardActionProps {
   isSelected: boolean;
 }
 
-const CardAction: React.FC<CardActionProps> = ({ isSelected }) => {
-  return (
-    <div className={`mt-2 w-full flex items-center justify-center gap-2 px-4 py-2 rounded-md transition-colors text-sm font-medium
-       text-white` + (isSelected ? "bg-blue-700" : " bg-gray-700 hover:bg-gray-600")}>
+const CardAction: React.FC<CardActionProps> = ({ isSelected }) => (
+  <div className="mt-4">
+    <button
+      className={`w-full flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+        isSelected
+          ? "bg-blue-600 text-white"
+          : "bg-gray-800 text-white hover:bg-gray-700"
+      }`}
+    >
       {isSelected ? (
         <>
           <CheckCircle2 size={16} /> Selected
@@ -17,8 +22,8 @@ const CardAction: React.FC<CardActionProps> = ({ isSelected }) => {
           Select This Skip <ArrowRight size={16} />
         </>
       )}
-    </div>
-  );
-};
+    </button>
+  </div>
+);
 
 export default CardAction;

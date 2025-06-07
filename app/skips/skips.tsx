@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SkipCard from "../components/skipCard";
+import type { Skip } from "../components/skipCard";
 
 export function Skips() {
   const [skips, setSkips] = useState([]);
@@ -14,9 +15,9 @@ export function Skips() {
     const response = await axios.get(
       "https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft"
     );
-    const skipsWithImages = response.data.map((skip: any) => ({
+    const skipsWithImages = response.data.map((skip: Skip) => ({
       ...skip,
-      image_url: `https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`
+      image_url: `https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${skip.size}-yarder-skip.jpg`,
     }));
     setSkips(skipsWithImages);
   };
@@ -30,7 +31,7 @@ export function Skips() {
         </p>
       </div>
       <div className="grid  grid-cols-1 lg:w-[65%] sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
-        {skips.map((skip: any) => (
+        {skips.map((skip: Skip) => (
           <SkipCard
             key={skip.id}
             skip={skip}
